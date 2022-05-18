@@ -4,6 +4,7 @@ import { Line, Bar, Doughnut, Pie } from "react-chartjs-2";
 import styles from "./ChartsPainter.module.css";
 
 const ChartsPainter = (props) => {
+  // register taken chart types from library
   ChartJS.register(...registerables);
   
   const state = {
@@ -32,6 +33,7 @@ const ChartsPainter = (props) => {
     },
     maintainAspectRatio: false
   };
+  // variables for changing chart type while new radio button checked
   const [type, setType] = useState("bar");
 
   const charTypeBar = () => {
@@ -52,6 +54,7 @@ const ChartsPainter = (props) => {
 
   return (
     <Fragment>
+      {/* Chart graph */}
       <div className={styles.painter}>
         {type === "bar" && (
           <Bar data={state} options={options} />
@@ -66,6 +69,7 @@ const ChartsPainter = (props) => {
           <Doughnut data={state} options={options} />
         )}
       </div>
+      {/* Radio button group */}
       <div className={styles.radio}>
         <input
           type='radio'

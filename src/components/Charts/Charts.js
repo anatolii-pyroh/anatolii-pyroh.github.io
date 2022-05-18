@@ -5,6 +5,7 @@ import ChartsPainter from "./ChartsPainter";
 import InputForm from "./InputForm";
 
 const Charts = () => {
+  //  Create variables for Chart labels and data value
   const [labels, setLabels] = useState();
   const [data, setData] = useState();
 

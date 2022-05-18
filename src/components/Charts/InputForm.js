@@ -8,11 +8,11 @@ const InputForm = (props) => {
   const formSubmit = () => {
     const axisX = inputX.current.value;
     const axisY = inputY.current.value;
-
+    // Check if inputs are empty
     if (axisX.trim().length < 1 || axisY.trim().length < 1) {
       return 0;
     }
-
+    // sending data from inputs to ChartsPainter component from Charts parent component
     props.FillChart(axisX, axisY);
     inputX.current.value = "";
     inputY.current.value = "";
