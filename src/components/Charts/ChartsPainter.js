@@ -5,13 +5,19 @@ import styles from "./ChartsPainter.module.css";
 
 const ChartsPainter = (props) => {
   ChartJS.register(...registerables);
-
+  
   const state = {
     labels: props.labels,
     datasets: [
       {
         label: "",
-        backgroundColor: "#ccc",
+        backgroundColor: [
+        '#B21F00',
+        '#C9DE00',
+        '#2FDE00',
+        '#00A6B4',
+        '#6800B4'
+        ],
         borderColor: "rgba(0,0,0,1)",
         borderWidth: 1,
         data: props.data,
@@ -24,6 +30,7 @@ const ChartsPainter = (props) => {
       legend: false,
       toolbar: false,
     },
+    maintainAspectRatio: false
   };
   const [type, setType] = useState("bar");
 
@@ -47,16 +54,16 @@ const ChartsPainter = (props) => {
     <Fragment>
       <div className={styles.painter}>
         {type === "bar" && (
-          <Bar data={state} options={options} width={7} height={5} />
+          <Bar data={state} options={options} />
         )}
         {type === "line" && (
-          <Line data={state} options={options} width={7} height={5} />
+          <Line data={state} options={options}/>
         )}
         {type === "pie" && (
-          <Pie data={state} options={options} width={7} height={5} />
+          <Pie data={state} options={options} />
         )}
         {type === "doughnut" && (
-          <Doughnut data={state} options={options} width={7} height={5} />
+          <Doughnut data={state} options={options} />
         )}
       </div>
       <div className={styles.radio}>
@@ -75,12 +82,7 @@ const ChartsPainter = (props) => {
         <input type='radio' id='pie' name='chart' onClick={charTypePie} />
         <label htmlFor='pie'>Pie</label>
 
-        <input
-          type='radio'
-          id='doughnut'
-          name='chart'
-          onClick={charTypeDoughnut}
-        />
+        <input type='radio' id='doughnut'  name='chart' onClick={charTypeDoughnut} />
         <label htmlFor='doughnut'>Doughnut</label>
       </div>
     </Fragment>
