@@ -5,7 +5,7 @@ import Charts from "./components/Charts/Charts";
 function App() {
   return (
     <Fragment>
-      <Charts/>
+      <Charts />
     </Fragment>
   );
 }
