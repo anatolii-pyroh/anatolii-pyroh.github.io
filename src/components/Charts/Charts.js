@@ -11,8 +11,6 @@ const Charts = () => {
   const FillChartHandler = (axisX, axisY) => {
     setLabels(axisX.split(","));
     setData(axisY.split(","));
-    console.log(labels);
-    console.log(data);
   };
   
   return (
