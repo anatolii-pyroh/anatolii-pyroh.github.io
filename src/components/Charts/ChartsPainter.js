@@ -1,11 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { Chart as ChartJS, registerables } from "chart.js";
-import { Chart } from "react-chartjs-2";
+import { Line, Bar, Doughnut, Pie } from "react-chartjs-2";
 import styles from "./ChartsPainter.module.css";
 
 const ChartsPainter = (props) => {
   ChartJS.register(...registerables);
-  
+
   const state = {
     labels: props.labels,
     datasets: [
@@ -18,30 +18,46 @@ const ChartsPainter = (props) => {
       },
     ],
   };
- 
+
   const options = {
     plugins: {
       legend: false,
       toolbar: false,
     },
   };
-  const [type, setType] = useState("bar")
-  const charTypeBar = () => {setType("bar")};
-  const charTypeLine = () => {setType("line")};
-  const charTypePie = () => {setType("pie")};
-  const charTypeDoughnut = () => {setType("doughnut")};
-  console.log(type)
+  const [type, setType] = useState("bar");
+
+  const charTypeBar = () => {
+    setType("bar");
+  };
+  const charTypeLine = () => {
+    setType("line");
+  };
+  const charTypePie = () => {
+    setType("pie");
+  };
+  const charTypeDoughnut = () => {
+    setType("doughnut");
+  };
+  useEffect(() => {
+    setType(type);
+  }, [type]);
 
   return (
     <Fragment>
       <div className={styles.painter}>
-        <Chart
-          type={type}
-          data={state}
-          options={options}
-          width={7}
-          height={5}
-        />
+        {type === "bar" && (
+          <Bar data={state} options={options} width={7} height={5} />
+        )}
+        {type === "line" && (
+          <Line data={state} options={options} width={7} height={5} />
+        )}
+        {type === "pie" && (
+          <Pie data={state} options={options} width={7} height={5} />
+        )}
+        {type === "doughnut" && (
+          <Doughnut data={state} options={options} width={7} height={5} />
+        )}
       </div>
       <div className={styles.radio}>
         <input
