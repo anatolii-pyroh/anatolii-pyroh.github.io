@@ -1,0 +1,19 @@
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  font: inherit;
+  display: block;
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.1rem;
+  margin-bottom: 0.7rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: black;
+}

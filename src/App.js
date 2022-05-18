@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
+import Charts from "./components/Charts/Charts";
+
 
 function App() {
   return (
     <Fragment>
-        <h1>Hello world</h1>
+      <Charts/>
     </Fragment>
   );
 }
