@@ -48,9 +48,6 @@ const ChartsPainter = (props) => {
   const charTypeDoughnut = () => {
     setType("doughnut");
   };
-  useEffect(() => {
-    setType(type);
-  }, [type]);
 
   return (
     <Fragment>
