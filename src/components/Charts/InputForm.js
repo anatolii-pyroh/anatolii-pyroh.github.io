@@ -14,8 +14,6 @@ const InputForm = (props) => {
     }
     // sending data from inputs to ChartsPainter component from Charts parent component
     props.FillChart(axisX, axisY);
-    inputX.current.value = "";
-    inputY.current.value = "";
   };
 
   return (
